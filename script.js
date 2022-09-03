@@ -4,22 +4,13 @@ const loadData = async () => {
         const res = await fetch(url);
         const data = await res.json();
         displayData(data.data.news_category);
-
     }
     catch {
 
         console.log(error);
     }
-
 }
-
-
-
 const displayData = (allCatagory) => {
-
-
-
-
     const catagories = document.getElementById('catagories');
 
     allCatagory.forEach(catagory => {
@@ -31,17 +22,18 @@ const displayData = (allCatagory) => {
         catagories.appendChild(newDiv)
     });
 
-}
+};
 
 
 const loadNewsDetail = async (category_id) => {
     try {
-        toggleSpinner(true);//spinner function parameter
+        toggleSpinner(true);
         const url = `https://openapi.programming-hero.com/api/news/category/0${category_id} `;
         const res = await fetch(url);
         const data = await res.json();
         displayNews(data.data);
     }
+    
 
     catch {
 
@@ -79,9 +71,6 @@ const displayNews = (allNews) => {
     }
 
 
-
-
-
     allNews.forEach(news => {
 
 
@@ -115,17 +104,10 @@ const displayNews = (allNews) => {
                     </button>
 
                     </div>
-                    </div>
-
-
-`;
+                    </div>`;
         newsContainer.appendChild(newsDiv);
-
-
-
     })
-
-    toggleSpinner(false);////spinner function parameter
+    toggleSpinner(false);
 
 }
 
@@ -164,9 +146,6 @@ const displayLoadNewsDetails = (newsDetail) => {
        <p> ${newsDetail.title ? newsDetail.title : 'No data'}</p>
        
        `;
-
-
-
 }
 
 const toggleSpinner = isLoading => {
