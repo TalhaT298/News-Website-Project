@@ -3,14 +3,9 @@ const loadData = async () => {
     const res = await fetch(url);
     const data = await res.json();
     displayData(data.data.news_category);
-
-
 }
 
 const displayData = (allCatagory) => {
-
-
-
 
     const catagories = document.getElementById('catagories');
 
@@ -21,9 +16,7 @@ const displayData = (allCatagory) => {
         newDiv.innerHTML = ` <div onclick="loadNewsDetail(${catagory.category_id})" class="col text-primary" >${catagory.category_name}</div> `;
         catagories.appendChild(newDiv)
     });
-
 }
-
 const loadNewsDetail = async (category_id) => {
     const url = `https://openapi.programming-hero.com/api/news/category/0${category_id} `;
     const res = await fetch(url);
@@ -45,7 +38,7 @@ const displayNews = (allNews) => {
                         <img src="${news.image_url}" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${news.title}</h5>
-                            <p class="card-text">${news.details.slice(0, 300)}...</p>
+                            <p class="card-text">${news.details.slice(0, 200)}...</p>
                         </div>
                         <div class="d-flex p-3 justify-content-between">
                         <div class="d-flex">
@@ -62,19 +55,10 @@ const displayNews = (allNews) => {
                         </div>
 
                         <div><button class="btn btn-primary">Open Modal</button></div>
-
                     </div>
-                    </div>
-
-
-`;
+                    </div>`;
         newsContainer.appendChild(newsDiv);
-
-
-
     })
-
-
 
 }
 
